@@ -1,0 +1,1 @@
+- ESLint and Typescript will be stay under each module directory.
