@@ -42,3 +42,13 @@ export interface GetAvailablePaymentProviderRequestParamV1 {
   service: ServiceType
   config?: AxiosRequestConfig
 }
+
+export interface UpdatePaymentProviderRequestBodyV1 {
+  id: PaymentProviderID
+  name?: string
+  logo?: string
+  default?: boolean
+  active?: boolean
+  services?: string[]
+  regions?: string[]
+}
