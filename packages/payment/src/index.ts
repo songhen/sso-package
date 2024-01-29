@@ -112,7 +112,9 @@ export class PaymentSDK extends ApiService {
     return response.result?.data ? transformPaymentProvider(response.result.data) : null
   }
 
-  static saveDefaultPaymentProvider() {}
+  static async saveDefaultPaymentProvider(id: PaymentProviderID) {
+    return PaymentSDK.updatePaymentProvider({ id, default: true })
+  }
 
   static createPayment() {}
 
