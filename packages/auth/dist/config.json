@@ -1,0 +1,11 @@
+{
+    "REGION": "ap-southeast-2",
+    "USER_POOL_ID": "ap-southeast-2_dWzjnMmP9",
+    "USER_POOL_APP_CLIENT_ID": "2keb51apndh68hgsog2u1kqvdg",
+    "CLIENT_SECRET": "okba4salk5o52jt244cra11vv0lgplb7ckrl8ul2b97gqe2ad6m",
+    "DOMAIN": "https://wingmallpool.auth.ap-southeast-2.amazoncognito.com",
+    "SCOPES": ["email", "openid", "phone"],
+    "REDIRECT_SIGN_IN": ["http://localhost:3000/", "http://localhost:3000/"],
+    "REDIRECT_SIGN_OUT": ["http://localhost:3000/", "http://localhost:3000/"],
+    "RESPONSE_TYPE": "code"
+}
