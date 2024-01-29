@@ -52,3 +52,5 @@ export interface UpdatePaymentProviderRequestBodyV1 {
   services?: string[]
   regions?: string[]
 }
+
+export type PaymentStatus = 'pending' | 'success' | 'failed'

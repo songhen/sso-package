@@ -1,7 +1,6 @@
 {
     "name": "wing-b2c-payment-sdk",
-    "version": "1.0.0-beta",
-    "main": "index.ts",
+    "version": "1.0.1-beta",
     "repository": {
         "type": "git",
         "url": "https://github.com/nopmengkoung/wing-b2c-modules.git"

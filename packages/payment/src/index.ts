@@ -1,32 +1,30 @@
 import ApiService from 'wing-b2c-core-sdk/api'
-import path from 'path'
-import fs from 'fs'
 import {
   GetAvailablePaymentProviderRequestParamV1,
   GetPaymentProviderRequestParamV1,
   PaymentProviderID,
+  PaymentStatus,
   RawPaymentProviderModelV1,
   TransformedPaymentProviderModelV1,
   UpdatePaymentProviderRequestBodyV1,
 } from './model'
 import { transformPaymentProvider } from './transformer'
 import { MOCK_PAYMENT_PROVIDERS } from './mock.data'
+import config from './config'
 
 const endpoints = {
   getPaymentProviders: '/v1/payment/get-payment-providers',
   updatePaymentProviders: (id: PaymentProviderID) => `/v1/payment/get-payment-providers/${id}`,
+  checkPaymentStatus: (txnId: string) => `/v1/payment/check-payment-status/${txnId}`,
 }
 
 export class PaymentSDK extends ApiService {
   private static instance: PaymentSDK
 
   private constructor() {
-    const filePath = path.resolve(__dirname, 'config.json')
-    const options = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-
     super({
-      baseURL: options.baseURL,
-      timeout: options.timeout,
+      baseURL: config.baseURL,
+      timeout: config.timeout,
     })
   }
 
@@ -116,11 +114,30 @@ export class PaymentSDK extends ApiService {
     return PaymentSDK.updatePaymentProvider({ id, default: true })
   }
 
+  static async checkPaymentStatus(txnId: string): Promise<PaymentStatus | null> {
+    // TODO: to be request to api when ready
+    // const instance = PaymentSDK.getInstance()
+    // const response = await instance.get<{ data: PaymentStatus }>(endpoints.checkPaymentStatus(txnId), {
+    //   signal: instance.getAbortController().signal,
+    // })
+
+    // if (!response.ok) {
+    //   throw new Error(response.errorMessage)
+    // }
+
+    // TODO: to be removed when api ready
+    const response = {
+      result: {
+        data: 'success' as PaymentStatus,
+      },
+    }
+
+    return response.result?.data || null
+  }
+
   static createPayment() {}
 
   static createRepayment() {}
-
-  static checkPaymentStatus() {}
 
   static saveCardToken() {}
 }
