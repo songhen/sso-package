@@ -49,10 +49,10 @@ The main package that you interface with is `App` (`@react-native-firebase/app`)
 ---
 
 <p align="center">
-  <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=react-native-firebase">
-    <img width="75px" src="https://static.invertase.io/assets/invertase/invertase-rounded-avatar.png">
+  <a href="https://github.com/nopmengkoung/wing-b2c-modules">
+    <img width="75px" src="https://stage-new-wingmall.web.app/static/media/wing-mall-full-new.9d01c56b.png">
   </a>
   <p align="center">
-    Built and maintained by <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=react-native-firebase">Invertase</a>.
+    Built and maintained by <a href="https://github.com/nopmengkoung/wing-b2c-modules">Wing B2C Technology</a>.
   </p>
 </p>
