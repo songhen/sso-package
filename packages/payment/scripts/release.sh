@@ -89,7 +89,7 @@ temp_folder="temp_folder_for_build"
 mkdir -p $temp_folder
 
 # Copy the necessary files to the temporary folder
-cp -R packages/payment/dist/src/* $temp_folder/
+cp -R packages/payment/dist/* $temp_folder/
 cp packages/payment/package.json $temp_folder/
 cp packages/payment/CHANGELOG.md $temp_folder/
 done_emoji
