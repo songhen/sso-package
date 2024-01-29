@@ -123,10 +123,4 @@ export class PaymentSDK extends ApiService {
   static checkPaymentStatus() {}
 
   static saveCardToken() {}
-
-  static pay() {}
-
-  private payWithProvider() {}
-
-  static canPayWithProvider() {}
 }
