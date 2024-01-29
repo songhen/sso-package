@@ -1,7 +1,11 @@
-# Changelog
+# Change Log
 
-## [v1.0.0] - 2024-01-26
+## [1.0.1-beta] - 2024-01-29
+### Features
+- mock request checkPaymentStatus
 
-### Added
-
-_Please list any new features added, or `N/A` if none._
+## [1.0.0-beta] - 2024-01-29
+### Features
+- mock request getPaymentProviders
+- mock request updatePaymentProvider
+- mock request saveDefaultPaymentProvider
