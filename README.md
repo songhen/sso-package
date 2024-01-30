@@ -1,45 +1,50 @@
 <p align="center">
-  <a href="https://github.com/nopmengkoung/wing-b2c-modules/tree/feat/payment-mobile-sdk">
+  <a href="https://github.com/nopmengkoung/wing-b2c-modules/tree/feat/payment-sdk">
     <img width="160px" src="https://stage-new-wingmall.web.app/static/media/wing-mall-full-new.9d01c56b.png"><br/>
   </a>
-  <h2 align="center">Wing B2C Modules</h2>
+  <h2 align="center">Wing B2C Modules - Payment Mobile SDK</h2>
 </p>
 
-**Wing B2C Modules** is a collection of mobile, web, api modules connecting you to Wing B2C core services; each module is a light-weight JavaScript.
+Payment integrates across Wing B2C features and provides
+you with ease of use for payment provider integration.
 
-Wing B2C Modules is built with four key principles in mind;
+[> Learn More][(https://firebase.google.com/products/analytics/](https://github.com/nopmengkoung/wing-b2c-modules/tree/feat/payment-sdk))
 
-- 🧪 **Well tested**
-  - every module is extensively tested to >95% coverage
-- 👁 **Well typed**
-  - first class support for Typescript included
-- 📄 **Well documented**
-  - full reference & installation documentation alongside detailed guides and FAQs
-- 🔥 **Ease of use**
-  - maximizes cross-platform code re-usability e.g. re-using code
+## Installation
 
-## Wing B2C Modules
+Requires `wing-b2c-payment-sdk` to be installed.
 
-This is the root of the mono-repo for Wing B2C Modules, if you're looking for a specific package please select the package link from below.
+```bash
+yarn add wing-b2c-payment-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentSDK-v1.0.3-beta wing-b2c-payment-mobile-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentMobileSDK-v1.0.3-beta
+```
 
-The main package that you interface with is `App` (`@react-native-firebase/app`)
+### iOS
+Add below code to `Podfile`
 
-| Name                                                     |
-| -------------------------------------------------------- |
-| [Core](/packages/core)                                   |
-| [Auth](/packages/auth)                                   |
-| [Payment](/packages/payment)                             |
-| [Voucher](/packages/voucher)                             |
+```bash
+pod 'wing-b2c-payment-mobile-sdk', :path => '../node_modules/wing-b2c-payment-mobile-sdk'
+```
+
+### Android
+Add below code to `settings.gradle`
+
+```bash
+include ':wing-b2c-payment-mobile-sdk'
+project(':wing-b2c-payment-mobile-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/wing-b2c-payment-mobile-sdk/android')
+```
+
+Add below code to `build.gradle(app)`
+
+```bash
+implementation project(':wing-b2c-payment-mobile-sdk')
+```
+
 
 
 
 ## Documentation
 
-- [Quick Start]()
-
-
-## Contributing
-
+- [Quick Start](https://github.com/nopmengkoung/wing-b2c-modules/blob/main/docs/payment/usage/index.md)
 
 
 ## License
@@ -48,11 +53,11 @@ The main package that you interface with is `App` (`@react-native-firebase/app`)
 
 ---
 
-<p align="center">
-  <a href="https://github.com/nopmengkoung/wing-b2c-modules">
-    <img width="75px" src="https://stage-new-wingmall.web.app/static/media/wing-mall-full-new.9d01c56b.png">
-  </a>
-  <p align="center">
-    Built and maintained by <a href="https://github.com/nopmengkoung/wing-b2c-modules">Wing B2C Technology</a>.
+<p>
+  <img align="left" width="75px" src="https://static.invertase.io/assets/invertase-logo-small.png">
+  <p align="left">
+    Built and maintained with 💛 by <a href="https://invertase.io">Wing B2C Technogloy</a>.
   </p>
 </p>
+
+---
