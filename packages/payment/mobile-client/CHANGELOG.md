@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.2-beta] - 2024-01-30
+### Features
+- add getDefaultPaymentProvider
+
 ## [1.0.1-beta] - 2024-01-30
 ### Features
 - add getAvailablePaymentOptions
