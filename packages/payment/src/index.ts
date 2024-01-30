@@ -5,7 +5,9 @@ import {
   PaymentProviderID,
   PaymentStatus,
   RawPaymentProviderModelV1,
+  RawPaymentResponseModelV1,
   TransformedPaymentProviderModelV1,
+  TransformedPaymentResponseModelV1,
   UpdatePaymentProviderRequestBodyV1,
 } from './model'
 import { transformPaymentProvider } from './transformer'
@@ -16,6 +18,7 @@ const endpoints = {
   getPaymentProviders: '/v1/payment/get-payment-providers',
   updatePaymentProviders: (id: PaymentProviderID) => `/v1/payment/get-payment-providers/${id}`,
   checkPaymentStatus: (txnId: string) => `/v1/payment/check-payment-status/${txnId}`,
+  createPayment: (txnId: string) => `/v1/payment/create-payment/${txnId}`,
 }
 
 export class PaymentSDK extends ApiService {
@@ -135,9 +138,40 @@ export class PaymentSDK extends ApiService {
     return response.result?.data || null
   }
 
-  static createPayment() {}
+  static async createPayment(txnId: string): Promise<TransformedPaymentResponseModelV1 | null> {
+    try {
+      // TODO: to be request to api when ready
+      // const instance = PaymentSDK.getInstance()
+      // const response = await instance.post<{ data: RawPaymentResponseModelV1 } | null>(
+      //   endpoints.createPayment(txnId)
+      // )
 
-  static createRepayment() {}
+      // if (!response.ok) {
+      //   throw new Error(response.errorMessage)
+      // }
+
+      // TODO: to be removed when api ready
+      const response = {
+        result: {
+          data: {
+            txn_id: txnId,
+            payment_url: '',
+          },
+        },
+      }
+
+      return {
+        txnId: response.result?.data?.txn_id || '',
+        paymentUrl: response.result?.data?.payment_url || '',
+      }
+    } catch (e) {
+      return null
+    }
+  }
+
+  static async createRepayment(txnId: string): Promise<TransformedPaymentResponseModelV1 | null> {
+    return PaymentSDK.createPayment(txnId)
+  }
 
   static saveCardToken() {}
 }
