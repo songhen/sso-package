@@ -1,6 +1,6 @@
 {
   "name": "wing-b2c-payment-mobile-sdk",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta",
   "description": "payment sdk for mobile",
   "homepage": "https://github.com/nopmengkoung/wing-b2c-modules",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "@types/react-native": "0.67.5",
     "zustand": "^4.5.0",
     "react-native": "0.67.5",
-    "wing-b2c-payment-sdk": "https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentSDK-v1.0.1-beta"
+    "wing-b2c-payment-sdk": "https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentSDK-v1.0.3-beta"
   },
   "peerDependencies": {
     "zustand": "*",
