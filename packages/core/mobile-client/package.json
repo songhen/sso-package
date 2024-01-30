@@ -19,12 +19,15 @@
     "react": "17.0.2",
     "react-i18next": "^13.5.0",
     "react-native": "0.67.5",
-    "react-native-device-info": "10.10.0"
+    "react-native-device-info": "10.10.0",
+    "react-native-vector-icons": "6.6.0",
+    "@types/react-native-vector-icons": "^6.4.18"
   },
   "peerDependencies": {
     "react": "*",
     "react-i18next": "*",
     "react-native": "*",
-    "react-native-device-info": "*"
+    "react-native-device-info": "*",
+    "react-native-vector-icons": "*"
   }
 }
