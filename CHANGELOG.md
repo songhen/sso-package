@@ -1,7 +1,11 @@
-# Changelog
+## [1.0.0-beta] - 2024-01-29
 
-## [v1.0.0] - 2024-01-26
+### Features
 
-### Added
-
-_Please list any new features added, or `N/A` if none._
+- loginWithHostedUI
+- logoutWithHostedUI
+- exchangeTokenByAuthorizationCode
+- getCurrentUser
+- login
+- logout
+- verifyToken

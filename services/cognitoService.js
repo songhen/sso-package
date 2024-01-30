@@ -19,7 +19,7 @@ const jsrsasign_1 = require("jsrsasign");
 const config_json_1 = __importDefault(require("../config.json"));
 class CognitoService {
     constructor() {
-        (0, awsConfig_1.configureAuth)();
+        (0, awsConfig_1.configureAuth)(config_json_1.default);
     }
     static getInstance() {
         if (!this.instance) {
@@ -28,51 +28,34 @@ class CognitoService {
         return this.instance;
     }
     loginWithHostedUI() {
-        const clientId = config_json_1.default.USER_POOL_APP_CLIENT_ID;
-        const redirectUri = encodeURIComponent(config_json_1.default.REDIRECT_SIGN_IN['0']);
-        const responseType = encodeURIComponent(config_json_1.default.RESPONSE_TYPE);
-        const scope = config_json_1.default.SCOPES.join('+');
-        const domain = config_json_1.default.DOMAIN;
-        const url = `${domain}/login?response_type=${responseType}&client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}`;
-        console.log(url);
+        const { USER_POOL_APP_CLIENT_ID: clientId, REDIRECT_SIGN_IN, RESPONSE_TYPE, SCOPES, DOMAIN: domain } = config_json_1.default;
+        const url = `${domain}/login?response_type=${encodeURIComponent(RESPONSE_TYPE)}&client_id=${clientId}&scope=${SCOPES.join('+')}&redirect_uri=${encodeURIComponent(REDIRECT_SIGN_IN['0'])}`;
         window.location.assign(url);
     }
     logoutWithHostedUI() {
-        const clientId = config_json_1.default.USER_POOL_APP_CLIENT_ID;
-        const redirectUri = encodeURIComponent(config_json_1.default.REDIRECT_SIGN_IN['0']);
-        const responseType = encodeURIComponent(config_json_1.default.RESPONSE_TYPE);
-        const scope = encodeURIComponent(config_json_1.default.SCOPES.join(' '));
-        const domain = config_json_1.default.DOMAIN;
-        const url = `${domain}/logout?response_type=${responseType}&client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}`;
+        const { USER_POOL_APP_CLIENT_ID: clientId, REDIRECT_SIGN_IN, RESPONSE_TYPE, SCOPES, DOMAIN: domain } = config_json_1.default;
+        const url = `${domain}/logout?response_type=${encodeURIComponent(RESPONSE_TYPE)}&client_id=${clientId}&scope=${encodeURIComponent(SCOPES.join(' '))}&redirect_uri=${encodeURIComponent(REDIRECT_SIGN_IN['0'])}`;
         window.location.assign(url);
     }
     exchangeTokenByAuthorizationCode(code) {
         return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const params = new URLSearchParams();
-                params.append('grant_type', 'authorization_code');
-                params.append('client_id', config_json_1.default.USER_POOL_APP_CLIENT_ID);
-                params.append('code', code);
-                params.append('redirect_uri', config_json_1.default.REDIRECT_SIGN_IN['0']);
-                const response = yield fetch(`${config_json_1.default.DOMAIN}/oauth2/token`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        Authorization: 'Basic ' + btoa(`${config_json_1.default.USER_POOL_APP_CLIENT_ID}:${config_json_1.default.CLIENT_SECRET}`),
-                    },
-                    body: params.toString(),
-                });
-                if (!response.ok) {
-                    throw new Error('Failed to exchange authorization code for token');
-                }
-                const data = yield response.json();
-                const { id_token, access_token, refresh_token } = data;
-                // Return the tokens
-                return { id_token, access_token, refresh_token };
+            const params = new URLSearchParams();
+            params.append('grant_type', 'authorization_code');
+            params.append('client_id', config_json_1.default.USER_POOL_APP_CLIENT_ID);
+            params.append('code', code);
+            params.append('redirect_uri', config_json_1.default.REDIRECT_SIGN_IN['0']);
+            const response = yield fetch(`${config_json_1.default.DOMAIN}/oauth2/token`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    Authorization: 'Basic ' + btoa(`${config_json_1.default.USER_POOL_APP_CLIENT_ID}:${config_json_1.default.CLIENT_SECRET}`),
+                },
+                body: params.toString(),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to exchange authorization code for token');
             }
-            catch (error) {
-                throw error;
-            }
+            return yield response.json();
         });
     }
     getCurrentUser(accessToken) {
@@ -85,18 +68,13 @@ class CognitoService {
             if (!response.ok) {
                 throw new Error('Error getting current user');
             }
-            const data = yield response.json();
-            return data;
+            return yield response.json();
         });
     }
     login(username, password) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const user = yield (0, auth_1.signIn)({
-                    username,
-                    password,
-                });
-                return user;
+                return yield (0, auth_1.signIn)({ username, password });
             }
             catch (error) {
                 console.error('Error signing in', error);
@@ -116,21 +94,15 @@ class CognitoService {
     }
     verifyToken(token) {
         return __awaiter(this, void 0, void 0, function* () {
-            // Fetch the JSON Web Key Set (JWKS) from AWS Cognito
             const response = yield fetch(`https://cognito-idp.${config_json_1.default.REGION}.amazonaws.com/${config_json_1.default.USER_POOL_ID}/.well-known/jwks.json`);
             const { keys } = yield response.json();
-            // Decode the JWT without verifying it to get its header
             const decodedHeader = jsrsasign_1.KJUR.jws.JWS.readSafeJSONString((0, jsrsasign_1.hextoutf8)((0, jsrsasign_1.b64utohex)(token.split('.')[0])));
-            // Find the key from the JWKS that matches the key ID of the JWT
             const key = keys.find((key) => key.kid === decodedHeader.kid);
             if (!key) {
                 throw new Error('Key not found in JWKS');
             }
-            // Convert the key to a RSAKey object
             const rsaKey = jsrsasign_1.KEYUTIL.getKey(key);
-            // Verify the JWT
-            const isValid = jsrsasign_1.KJUR.jws.JWS.verifyJWT(token, rsaKey, { alg: ['RS256'] });
-            return isValid;
+            return jsrsasign_1.KJUR.jws.JWS.verifyJWT(token, rsaKey, { alg: ['RS256'] });
         });
     }
 }
