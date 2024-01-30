@@ -10,32 +10,35 @@ import { Divider } from './Divider'
 import { Modal } from './Modal'
 import { RadioOption } from './RadioOption'
 import { TagButton } from './TagButton'
+import AbsoluteIndicator from './AbsoluteIndicator'
 
 export {
-  Text,
-  Button,
-  Indicator,
-  Image,
+  AbsoluteIndicator,
   Badge,
-  CircularIcon,
+  Button,
   CircularCheck,
+  CircularIcon,
   ContainerView,
   Divider,
+  Image,
+  Indicator,
   Modal,
   RadioOption,
   TagButton,
+  Text,
 }
 
 export default {
-  Text,
-  Image,
-  Button,
-  Indicator,
+  AbsoluteIndicator,
   Badge,
-  CircularIcon,
+  Button,
   CircularCheck,
+  CircularIcon,
   Divider,
+  Image,
+  Indicator,
   Modal,
   RadioOption,
   TagButton,
+  Text,
 }
