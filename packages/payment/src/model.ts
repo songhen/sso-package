@@ -54,3 +54,13 @@ export interface UpdatePaymentProviderRequestBodyV1 {
 }
 
 export type PaymentStatus = 'pending' | 'success' | 'failed'
+
+export interface RawPaymentResponseModelV1 {
+  txn_id: string
+  payment_url: string
+}
+
+export interface TransformedPaymentResponseModelV1 {
+  txnId: string
+  paymentUrl: string
+}
