@@ -1,3 +1,5 @@
+import WebView from 'react-native-webview'
+
 import { Text } from './Text'
 import { Button } from './Button'
 import { Indicator } from './Indicator'
@@ -26,6 +28,7 @@ export {
   RadioOption,
   TagButton,
   Text,
+  WebView,
 }
 
 export default {
@@ -41,4 +44,5 @@ export default {
   RadioOption,
   TagButton,
   Text,
+  WebView,
 }
