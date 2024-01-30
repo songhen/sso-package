@@ -1,11 +1,14 @@
 {
   "name": "auth",
-  "version": "1.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "1.1.0-beta",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/songhen/sso-package.git"
+},
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "release": "./scripts/release.sh"
   },
   "devDependencies": {
     "@types/node": "^20.11.10",

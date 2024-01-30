@@ -1,1 +1,1 @@
-export declare function configureAuth(): void;
+export declare function configureAuth(config: any): void;

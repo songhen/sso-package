@@ -1,6 +1,6 @@
 import { signIn, signOut } from 'aws-amplify/auth';
 import { configureAuth } from '../aws-config/awsConfig';
-import { KEYUTIL, KJUR, hextoutf8, b64utohex } from 'jsrsasign';
+// import { KEYUTIL, KJUR, hextoutf8, b64utohex } from 'jsrsasign';
 import config from '../config.json';
 import { TokenResponse } from '../types';
 
@@ -84,17 +84,17 @@ export class CognitoService {
     }
   }
 
-  async verifyToken(token: string): Promise<boolean> {
-    const response = await fetch(`https://cognito-idp.${config.REGION}.amazonaws.com/${config.USER_POOL_ID}/.well-known/jwks.json`);
-    const { keys } = await response.json();
-    const decodedHeader = KJUR.jws.JWS.readSafeJSONString(hextoutf8(b64utohex(token.split('.')[0])));
-    const key = keys.find((key: any) => key.kid === decodedHeader.kid);
+  // async verifyToken(token: string): Promise<boolean> {
+  //   const response = await fetch(`https://cognito-idp.${config.REGION}.amazonaws.com/${config.USER_POOL_ID}/.well-known/jwks.json`);
+  //   const { keys } = await response.json();
+  //   const decodedHeader = KJUR.jws.JWS.readSafeJSONString(hextoutf8(b64utohex(token.split('.')[0])));
+  //   const key = keys.find((key: any) => key.kid === decodedHeader.kid);
 
-    if (!key) {
-      throw new Error('Key not found in JWKS');
-    }
+  //   if (!key) {
+  //     throw new Error('Key not found in JWKS');
+  //   }
 
-    const rsaKey = KEYUTIL.getKey(key);
-    return KJUR.jws.JWS.verifyJWT(token, rsaKey, { alg: ['RS256'] });
-  }
+  //   const rsaKey = KEYUTIL.getKey(key);
+  //   return KJUR.jws.JWS.verifyJWT(token, rsaKey, { alg: ['RS256'] });
+  // }
 }
