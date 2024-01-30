@@ -10,7 +10,8 @@
         "build": "yarn && tsc",
         "test": "jest",
         "lint": "eslint --fix",
-        "release": "./scripts/release.sh"
+        "release": "./scripts/release.sh",
+        "release:mobile": "./scripts/mobile.release.sh"
     },
     "license": "MIT",
     "devDependencies": {
