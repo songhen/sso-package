@@ -7,8 +7,24 @@ import { CircularIcon } from './CircularIcon'
 import CircularCheck from './CircularCheck'
 import { ContainerView } from './ContainerView'
 import { Divider } from './Divider'
+import { Modal } from './Modal'
+import { RadioOption } from './RadioOption'
+import { TagButton } from './TagButton'
 
-export { Text, Button, Indicator, Image, Badge, CircularIcon, CircularCheck, ContainerView, Divider }
+export {
+  Text,
+  Button,
+  Indicator,
+  Image,
+  Badge,
+  CircularIcon,
+  CircularCheck,
+  ContainerView,
+  Divider,
+  Modal,
+  RadioOption,
+  TagButton,
+}
 
 export default {
   Text,
@@ -19,4 +35,7 @@ export default {
   CircularIcon,
   CircularCheck,
   Divider,
+  Modal,
+  RadioOption,
+  TagButton,
 }
