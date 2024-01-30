@@ -35,4 +35,14 @@ export const MOCK_PAYMENT_PROVIDERS: RawPaymentProviderModelV1[] = [
     services: ['food', 'groceries', 'shopping', 'express'],
     regions: ['pnh', 'kpc', 'sr'],
   },
+  {
+    id: 'wingcoin',
+    name: 'Wingcoin',
+    logo: 'https://play-lh.googleusercontent.com/-deHHbwBUh2I4dzTjq9n4ggBGPqJwKzj9pwvPqyaR-hPxzKN9QVJOBsZP_ShlCDmX60',
+    info: 'Wingcoin allows you to pay for goods and services with your mobile phone.',
+    default: false,
+    active: true,
+    services: ['food', 'groceries', 'shopping', 'express', 'gift-card', 'pick-up'],
+    regions: ['pnh', 'kpc', 'sr'],
+  },
 ]
