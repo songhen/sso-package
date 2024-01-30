@@ -10,5 +10,6 @@ module.exports = {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     '@typescript-eslint/no-explicit-any': 'off', // Allow the use of 'any' type
     '@typescript-eslint/no-unused-vars': ['off', { argsIgnorePattern: '^-' }], // Allow unused variables named '-'
+    '@typescript-eslint/no-duplicate-enum-values': 'off',
   },
 }

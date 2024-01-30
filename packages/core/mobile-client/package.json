@@ -1,6 +1,6 @@
 {
   "name": "wing-b2c-core-mobile-sdk",
-  "version": "0.0.0",
+  "version": "1.0.0-beta",
   "description": "Wing B2C Core SDK for Mobile",
   "author": "Wing Technology",
   "license": "MIT",
@@ -16,9 +16,15 @@
     "prettier": "^3.2.4",
     "typescript": "^5.3.3",
     "@types/react-native": "0.67.5",
-    "react-native": "0.67.5"
+    "react": "17.0.2",
+    "react-i18next": "^13.5.0",
+    "react-native": "0.67.5",
+    "react-native-device-info": "10.10.0"
   },
   "peerDependencies": {
-    "react-native": "*"
+    "react": "*",
+    "react-i18next": "*",
+    "react-native": "*",
+    "react-native-device-info": "*"
   }
 }
