@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.3-beta] - 2024-01-30
+### Features
+- modified pay function no longer required to pass showPaymentProcessing as its param
+- add payment processing screen
 ## [1.0.2-beta] - 2024-01-30
 ### Features
 - add getDefaultPaymentProvider

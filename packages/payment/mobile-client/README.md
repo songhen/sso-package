@@ -15,7 +15,7 @@ you with ease of use for payment provider integration.
 Requires `wing-b2c-payment-sdk` to be installed.
 
 ```bash
-yarn add wing-b2c-payment-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentSDK-v1.0.3-beta wing-b2c-payment-mobile-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentMobileSDK-v1.0.2-beta
+yarn add wing-b2c-payment-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentSDK-v1.0.3-beta wing-b2c-payment-mobile-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentMobileSDK-v1.0.3-beta
 ```
 
 ### iOS

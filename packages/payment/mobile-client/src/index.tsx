@@ -14,6 +14,7 @@ import {
   MakePaymentRequestParamV1,
   PayWithProviderRequestParamV1,
 } from './model'
+import { registerScreens, showPaymentProcessing } from './navigation'
 
 import { getPaymentState } from './repo'
 
@@ -55,6 +56,7 @@ class PaymentMobileSDK {
     const metadata = provider.metadata as any
     const url = Platform.OS === 'ios' ? metadata?.ios_store_link : metadata?.android_store_link
     try {
+      if (!provider.active) return false
       if (!url) return true
 
       const canOpen =
@@ -80,7 +82,6 @@ class PaymentMobileSDK {
         paymentStatus = await this.payWithWingPay({
           txnId: param.txnId,
           paymentUrl: param.paymentUrl,
-          showPaymentProcessing: param.showPaymentProcessing,
         })
         break
 
@@ -88,7 +89,6 @@ class PaymentMobileSDK {
         paymentStatus = await this.payWithDebitCredit({
           txnId: param.txnId,
           paymentUrl: param.paymentUrl,
-          showPaymentProcessing: param.showPaymentProcessing,
         })
         break
 
@@ -123,7 +123,7 @@ class PaymentMobileSDK {
       return 'failed'
     }
 
-    return param.showPaymentProcessing({
+    return showPaymentProcessing({
       txnId: param.txnId,
       with: 'app',
       url: param.paymentUrl!,
@@ -132,7 +132,7 @@ class PaymentMobileSDK {
   }
 
   private static async payWithDebitCredit(param: PayWithProviderRequestParamV1): Promise<PaymentStatus> {
-    return param.showPaymentProcessing({
+    return showPaymentProcessing({
       txnId: param.txnId,
       with: 'web',
       url: param.paymentUrl!,
@@ -163,4 +163,11 @@ class PaymentMobileSDK {
   }
 }
 
-export { PaymentMobileSDK, PROVIDERS, PaymentSDKModel, PaymentMobileSDKModel, getPaymentState }
+export {
+  PaymentMobileSDK,
+  PROVIDERS,
+  PaymentSDKModel,
+  PaymentMobileSDKModel,
+  getPaymentState,
+  registerScreens as registerPaymentMobileSDKScreens,
+}
