@@ -98,6 +98,7 @@ cp -R packages/payment/mobile-client/ios $temp_folder/
 cp packages/payment/mobile-client/wing-b2c-payment-mobile-sdk.podspec $temp_folder/
 cp packages/payment/mobile-client/package.json $temp_folder/
 cp packages/payment/mobile-client/CHANGELOG.md $temp_folder/
+cp packages/payment/mobile-client/README.md $temp_folder/
 done_emoji
 
 echo "STEP 7: Removing unnecessary files from the new branch, except .git directory..."
