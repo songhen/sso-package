@@ -1,0 +1,24 @@
+{
+  "name": "wing-b2c-core-mobile-sdk",
+  "version": "0.0.0",
+  "description": "Wing B2C Core SDK for Mobile",
+  "author": "Wing Technology",
+  "license": "MIT",
+  "homepage": "#readme",
+  "scripts": {
+    "build": "yarn && tsc"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3",
+    "@types/react-native": "0.67.5",
+    "react-native": "0.67.5"
+  },
+  "peerDependencies": {
+    "react-native": "*"
+  }
+}
