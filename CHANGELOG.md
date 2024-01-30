@@ -1,7 +1,27 @@
-# Changelog
+# Change Log
 
-## [v1.0.0] - 2024-01-26
+## [1.0.0-beta] - 2024-01-30
+### Add
+#### UI Components
+- AbsoluteIndicator
+- Badge
+- Button
+- CircularCheck
+- CircularIcon
+- Divider
+- Image
+- Indicator
+- Modal
+- RadioOption
+- TagButton
+- Text
+- WebView
 
-### Added
+#### Themes
+- colors
+- mixins
+- typography
 
-_Please list any new features added, or `N/A` if none._
+#### Utils
+- helpers
+- precise-calculator

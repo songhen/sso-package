@@ -1,0 +1,23 @@
+import React from 'react';
+import { StyleProp, ViewStyle, TextStyle } from 'react-native';
+import { Colors, Mixins } from '../themes';
+import { FontVariantType, FontWeightType } from '../themes/typography';
+export type MyButtonProps = {
+    label: string;
+    disabled?: boolean;
+    loading?: boolean;
+    indicatorColor?: (typeof Colors)[keyof typeof Colors];
+    rounded?: (typeof Mixins.Spacing)[keyof typeof Mixins.Spacing];
+    backgroundColor?: (typeof Colors)[keyof typeof Colors];
+    labelVariant?: FontVariantType;
+    labelWeight?: FontWeightType;
+    labelColor?: (typeof Colors)[keyof typeof Colors];
+    onPress?: () => void;
+    width?: ViewStyle['width'];
+    height?: ViewStyle['height'];
+    style?: StyleProp<ViewStyle>;
+    labelStyle?: StyleProp<TextStyle>;
+    icon?: React.ReactNode;
+    numberOfLines?: number;
+};
+export declare const Button: React.FC<MyButtonProps>;

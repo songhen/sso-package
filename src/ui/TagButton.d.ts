@@ -1,0 +1,20 @@
+import React from 'react';
+import { ImageStyle, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { Colors } from '../themes';
+type TagButtonProps = {
+    active?: boolean;
+    label: string;
+    disabled?: boolean;
+    activeBackgroundColor?: (typeof Colors)[keyof typeof Colors];
+    inActiveBackgroundColor?: (typeof Colors)[keyof typeof Colors];
+    activeLabelColor?: (typeof Colors)[keyof typeof Colors];
+    inActiveLabelColor?: (typeof Colors)[keyof typeof Colors];
+    closeButtonStyle?: StyleProp<ViewStyle>;
+    closeIconStyle?: StyleProp<ImageStyle>;
+    helperLabel?: string;
+    helperLabelStyle?: StyleProp<TextStyle>;
+    onPress?: () => void;
+    onPressClose?: () => void;
+};
+export declare const TagButton: React.FC<TagButtonProps>;
+export {};
