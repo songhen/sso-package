@@ -4876,9 +4876,9 @@ which@^2.0.1:
   dependencies:
     axios "^1.6.4"
 
-"wing-b2c-payment-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentSDK-v1.0.2-beta":
-  version "1.0.2-beta"
-  resolved "https://github.com/nopmengkoung/wing-b2c-modules.git#cf8bc16b3dfb3760b651f9e4ca04b425ff543933"
+"wing-b2c-payment-sdk@https://github.com/nopmengkoung/wing-b2c-modules.git#PaymentSDK-v1.0.3-beta":
+  version "1.0.3-beta"
+  resolved "https://github.com/nopmengkoung/wing-b2c-modules.git#42f211485a3663e57b105d8c0bf9986a8d809c38"
   dependencies:
     wing-b2c-core-sdk "https://github.com/nopmengkoung/wing-b2c-modules.git#CoreSDK-v1.0.0-beta"
 

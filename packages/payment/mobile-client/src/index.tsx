@@ -44,6 +44,12 @@ class PaymentMobileSDK {
     return getPaymentState().getAvailableWallets(param)
   }
 
+  static getDefaultPaymentProvider(
+    param: Omit<GetAvailablePaymentProviderRequestParamV1, 'config'>
+  ): TransformedPaymentProviderModelV1 {
+    return getPaymentState().getDefaultPaymentProvider(param)
+  }
+
   static async canPayWithProvider(param: CanMakePaymentWithProviderRequestParamV1): Promise<boolean> {
     const provider = getPaymentState().getProvider(param.providerId)
     const metadata = provider.metadata as any

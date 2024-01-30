@@ -19,10 +19,12 @@ type PaymentActions = {
   getPaymentOptions: (
     param: Omit<GetAvailablePaymentProviderRequestParamV1, 'config'>
   ) => TransformedPaymentProviderModelV1[]
-
   getAvailableWallets: (
     param: Omit<GetAvailablePaymentProviderRequestParamV1, 'config'>
   ) => TransformedPaymentProviderModelV1[]
+  getDefaultPaymentProvider: (
+    param: Omit<GetAvailablePaymentProviderRequestParamV1, 'config'>
+  ) => TransformedPaymentProviderModelV1
 }
 
 const initialState: PaymentState = {
@@ -71,6 +73,12 @@ export const usePaymentStore = create<PaymentState & PaymentActions>()(
           provider.id === PROVIDERS.WINGCOIN
       )
       return wingcoinProvider ? [wingcoinProvider] : []
+    },
+
+    getDefaultPaymentProvider: param => {
+      const providers = get().getPaymentOptions(param)
+      const defaultProvider = providers.find(provider => provider.default)
+      return defaultProvider || providers[0]
     },
   }))
 )
